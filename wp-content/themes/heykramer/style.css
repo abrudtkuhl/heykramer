@@ -1,10 +1,10 @@
 /*
-Theme Name: _tk
-Theme URI: http://themekraft.com/store/_tk-free-wordpress-starter-theme-based-on-twitter-bootstrap/
-Author: ThemeKraft
-Author URI: http://themekraft.com/
-Description: Hi, I am the ultra minimal starter theme _tk, ready for your next awesome WordPress project! I am the most seamless and minimalistic integration of Twitter Bootstrap Framework into the _s starter theme from Automattic, the guys behind WordPress. You can find me on GitHub. Fork me! I'm waiting for you ;)
-Version: 1.1.10
+Theme Name: Hey Kramer
+Theme URI: http://heykramer.com
+Author: Andy Brudtkuhl
+Author URI: http://youmetandy.com
+Description: Theme for Hey Kramer. Based on _tk which is built on Bootstrap and based on _s
+Version: 1.0
 License: GNU General Public License v3.0 /
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: gray, light, two-columns, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, sticky-post,  theme-options, threaded-comments, translation-ready
@@ -256,4 +256,20 @@ display: block;
 }
 */
 
-/* Hey, if you don't need my comments anymore, just delete me! :)  */
+/* Global */
+h1.page-title { margin-top: 0; }
+
+/* Layout */
+#content { margin: 50px 0; }
+
+/* Nav */
+.front-page .navbar { background-color: transparent; border: none; }
+
+/* Homepage */
+#hero { color: #FFF; font-family: 'Impact', 'Coda Caption', sans-serif;
+background-image: url('http://giant.gfycat.com/KaleidoscopicAdventurousBasil.gif');
+background-repeat:no-repeat;
+background-size: cover;
+background-position:center; height: 100%; padding: 25% 20%; }
+#hero-text {  }
+#hero-text h1 { font-size: 60px; }

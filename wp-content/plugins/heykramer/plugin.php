@@ -12,6 +12,11 @@
 
 
 add_action( 'rest_api_init', function () {
+    register_rest_route( 'api', '/any', array(
+        'methods'   =>  'GET',
+        'callback'  =>  'get_random',
+    ) );
+
     register_rest_route( 'api', '/quotes', array(
         'methods'   => 'GET',
         'callback'  => 'get_quotes',
@@ -32,6 +37,10 @@ add_action( 'rest_api_init', function () {
         'callback' =>  'get_random_gif',
     ) );
 } );
+
+function get_random() {
+    return get_posts( array( 'orderby' => 'rand', 'posts_per_page' => 1) );
+}
 
 function get_quotes() {
     return get_posts( array( 'category_name' => 'quotes' ) );

@@ -73,11 +73,11 @@ function get_random_gif() {
 
 function get_slash_command() {
     if( isset( $_GET['token'] ) ) {
-        if( isset( $_GET['command'] ) && (strpos($_GET['command'], 'gif') !== FALSE ) ) {
+        if( isset( $_GET['command'] ) && $_GET['command'] == 'gif' ) {
             $post = get_random_gif();
         }
 
-        if( isset( $_GET['command'] ) && (strpos($_GET['command'], 'quote') !== FALSE ) ) {
+        if( isset( $_GET['command'] ) && $_GET['command'] == 'quote' ) {
             $post = get_random_quote();
         }
 

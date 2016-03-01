@@ -22,7 +22,7 @@ add_action( 'rest_api_init', function () {
         'callback'  => 'get_quotes',
     ) );
 
-    register_rest_route( 'api', '/quotes/random', array(
+    register_rest_route( 'api', '/quotes/any', array(
         'methods'   => 'GET',
         'callback'  => 'get_random_quote',
     ) );
@@ -32,9 +32,14 @@ add_action( 'rest_api_init', function () {
         'callback' =>  'get_gifs',
     ) );
 
-    register_rest_route( 'api', '/gifs/random', array(
+    register_rest_route( 'api', '/gifs/any', array(
         'methods'  =>  'GET',
         'callback' =>  'get_random_gif',
+    ) );
+
+    register_rest_route( 'api', 'slash', array(
+        'methods'   =>  'GET',
+        'callback'  =>  'get_slash_command',
     ) );
 } );
 
@@ -64,4 +69,10 @@ function get_random_gif() {
         'orderby'           =>  'rand',
         'posts_per_page'    =>  1,
     ) );
+}
+
+function get_slash_command() {
+    $post = get_random();
+    $response = array('response_type' => 'in_channel', 'text' => $post[0]->post_content);
+    return  $response;
 }

@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Hey Kramer
- * Description: Hey Kramer - REST API for Seinfeld junkies
+ * Description: Hey Kramer - REST API for Seinfeld junkies. Powers Hey Kramer Slack Bot and associated slack commands
  * Author: Andy Brudtkuhl
  * Author URI: http://youmetandy.com
  * Version: 0.1
@@ -72,7 +72,22 @@ function get_random_gif() {
 }
 
 function get_slash_command() {
-    $post = get_random();
-    $response = array('response_type' => 'in_channel', 'text' => $post[0]->post_content);
-    return  $response;
+    if( isset( $_GET['token'] ) ) {
+        if( isset( $_GET['command'] ) && (strpos($_GET['command'], 'gif') !== FALSE ) ) {
+            $post = get_random_gif();
+        }
+
+        if( isset( $_GET['command'] ) && (strpos($_GET['command'], 'quote') !== FALSE ) ) {
+            $post = get_random_quote();
+        }
+
+        if( !isset($post) ) {
+            $post = get_random();
+        }
+
+        $response = array('response_type' => 'in_channel', 'text' => $post[0]->post_content);
+        return  $response;
+    }
+
+    return "hi";
 }

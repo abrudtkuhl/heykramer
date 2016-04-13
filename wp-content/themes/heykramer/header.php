@@ -27,15 +27,12 @@
 <body <?php body_class(); ?>>
 	<?php do_action( 'before' ); ?>
 
-<?php if( is_front_page() ) : ?>
-	<?php get_template_part( 'parts/homepage', 'hero' ); ?>
-<?php endif; ?>
-
+<?php if( !is_front_page() ) : ?>
 <nav class="site-navigation">
-	<div class="container">
+	<div class="container-full">
 		<div class="row">
 			<div class="site-navigation-inner col-sm-12">
-				<div class="navbar navbar-default navbar-fixed-top">
+				<div class="navbar navbar-default">
 					<div class="navbar-header">
 						<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -68,5 +65,4 @@
 		</div>
 	</div><!-- .container -->
 </nav><!-- .site-navigation -->
-
-<div id="content">
+<?php endif; ?>

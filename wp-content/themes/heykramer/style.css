@@ -258,6 +258,7 @@ display: block;
 
 /* Global */
 h1.page-title { margin-top: 0; }
+.site-footer { padding-top: 20px; }
 
 /* Layout */
 #content { margin: 50px 0; }
@@ -266,10 +267,11 @@ h1.page-title { margin-top: 0; }
 .home .navbar { background-color: transparent; border: none; }
 
 /* Homepage */
-#hero { color: #FFF; font-family: 'Impact', 'Coda Caption', sans-serif;
-background-image: url('http://giant.gfycat.com/KaleidoscopicAdventurousBasil.gif');
-background-repeat:no-repeat;
-background-size: cover;
-background-position:center; height: 100%; padding: 25% 20%; }
-#hero-text {  }
+#hero {
+	color: #FFF; font-family: 'Impact', 'Coda Caption', sans-serif;
+	background-image: url('http://giant.gfycat.com/KaleidoscopicAdventurousBasil.gif');
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position:center; height: 100%; padding: 25% 20%;
+}
 #hero-text h1 { font-size: 60px; }

@@ -56,7 +56,7 @@ function get_random_quote() {
         'category_name'     =>  'quotes',
         'orderby'           =>  'rand',
         'posts_per_page'    =>  1,
-    ) );
+    ) )[0]->post_content;
 }
 
 function get_gifs() {
@@ -75,19 +75,18 @@ function get_random_gif() {
 function get_slash_command() {
     if( isset( $_GET['token'] ) ) {
         if( isset( $_GET['command'] ) && $_GET['command'] == 'gif' ) {
-            $post = get_random_gif();
+            $response = get_random_gif();
         }
 
         if( isset( $_GET['command'] ) && $_GET['command'] == 'quote' ) {
-            $post = get_random_quote();
+            $response = get_random_quote();
         }
 
         if( !isset($post) ) {
-            $post = get_random();
+            $response = get_random();
         }
 
-        $response = array('response_type' => 'in_channel', 'text' => $post[0]->post_content);
-        return  $response;
+        return array('response_type' => 'in_channel', 'text' => $response);
     }
 
     return "hi";

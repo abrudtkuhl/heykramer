@@ -64,11 +64,12 @@ function get_gifs() {
 }
 
 function get_random_gif() {
-    return get_posts( array(
+    $post = get_posts( array(
         'category_name'     =>  'gifs',
         'orderby'           =>  'rand',
         'posts_per_page'    =>  1,
-    ) );
+    ) )[0];
+    return get_post_meta( $post->ID, 'gif_url', true );
 }
 
 function get_slash_command() {

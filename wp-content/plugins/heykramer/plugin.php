@@ -82,7 +82,7 @@ function get_slash_command() {
             $response = get_random_quote();
         }
 
-        if( !isset($post) ) {
+        if( !isset($response) ) {
             $response = get_random();
         }
 

@@ -74,20 +74,16 @@ function get_random_gif() {
 
 function get_slash_command() {
     if( isset( $_GET['token'] ) ) {
-        if( isset( $_GET['command'] ) && $_GET['command'] == 'gif' ) {
+        if( isset( $_GET['text'] ) && $_GET['text'] == 'gif' ) {
             $response = get_random_gif();
         }
 
-        if( isset( $_GET['command'] ) && $_GET['command'] == 'quote' ) {
+        if( isset( $_GET['text'] ) && $_GET['text'] == 'quote' ) {
             $response = get_random_quote();
-        }
-
-        if( !isset($response) ) {
-            $response = get_random();
         }
 
         return array('response_type' => 'in_channel', 'text' => $response);
     }
 
-    return "hi";
+    return "giddyyyyyup";
 }

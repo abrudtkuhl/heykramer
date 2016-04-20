@@ -275,5 +275,6 @@ body.home {
 	padding: 25% 20%;
 }
 #hero-text { font-family: 'Impact', 'Coda Caption', sans-serif; }
-#hero-text h1 { font-size: 60px; }
+#hero-text h1 { font-size: 45px; } 
+@media(min-width:768px){ #hero-text h1 { font-size: 60px; } }
 .site-footer a { color: #E2A83F; }

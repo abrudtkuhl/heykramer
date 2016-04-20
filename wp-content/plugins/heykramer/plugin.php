@@ -72,6 +72,15 @@ function get_random_gif() {
     return get_post_meta( $post->ID, 'gif_url', true );
 }
 
+function get_random_meme() {
+    $post = get_posts( array(
+        'category_name'     =>  'memes',
+        'orderby'           =>  'rand',
+        'posts_per_page'    =>  1,
+    ) )[0];
+    return get_post_meta( $post->ID, 'meme_url', true );
+}
+
 function get_slash_command() {
     if( isset( $_GET['token'] ) ) {
         if( isset( $_GET['text'] ) && $_GET['text'] == 'gif' ) {
@@ -80,6 +89,10 @@ function get_slash_command() {
 
         if( isset( $_GET['text'] ) && $_GET['text'] == 'quote' ) {
             $response = get_random_quote();
+        }
+
+        if( isset( $_GET['text'] ) && $_GET['text'] == 'meme' ) {
+            $response = get_random_meme();
         }
 
         return array('response_type' => 'in_channel', 'text' => $response);

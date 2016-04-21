@@ -20,11 +20,13 @@ add_action( 'rest_api_init', function () {
 function get_oauth() {
     $code = $_GET['code'];
 
+    if( !isset($code) ) {
+        return "giddyyyyyup!";
+    }
+    
     $response = wp_remote_post( 'https://slack.com/api/oauth.access',
         array(
             'body'  =>  array( 'client_id' => SLACK_CLIENT_ID, 'client_secret' => SLACK_CLIENT_KEY, 'code' => $code ),
         )
     );
-
-    $user = $response['body'];
 }

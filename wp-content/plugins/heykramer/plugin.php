@@ -38,7 +38,7 @@ add_action( 'rest_api_init', function () {
     ) );
 
     register_rest_route( 'api', 'slash', array(
-        'methods'   =>  'GET',
+        'methods'   =>  'POST',
         'callback'  =>  'get_slash_command',
     ) );
 } );
@@ -82,16 +82,16 @@ function get_random_meme() {
 }
 
 function get_slash_command() {
-    if( isset( $_GET['token'] ) ) {
-        if( isset( $_GET['text'] ) && $_GET['text'] == 'gif' ) {
+    if( isset( $_POST['token'] ) ) {
+        if( isset( $_POST['text'] ) && $_POST['text'] == 'gif' ) {
             $response = get_random_gif();
         }
 
-        if( isset( $_GET['text'] ) && $_GET['text'] == 'quote' ) {
+        if( isset( $_POST['text'] ) && $_POST['text'] == 'quote' ) {
             $response = get_random_quote();
         }
 
-        if( isset( $_GET['text'] ) && $_GET['text'] == 'meme' ) {
+        if( isset( $_POST['text'] ) && $_POST['text'] == 'meme' ) {
             $response = get_random_meme();
         }
 

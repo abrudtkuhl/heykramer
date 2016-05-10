@@ -6,23 +6,27 @@
  */
 
 get_header(); ?>
+<div class="container">
+	<div class="col-md-8">
+		<section class="content-padder error-404 not-found">
 
-	<?php // add the class "panel" below here to wrap the content-padder in Bootstrap style ;) ?>
-	<section class="content-padder error-404 not-found">
+			<header>
+				<h2 class="page-title"><?php _e( 'Oops! Something went wrong here.', '_tk' ); ?></h2>
+			</header><!-- .page-header -->
 
-		<header>
-			<h2 class="page-title"><?php _e( 'Oops! Something went wrong here.', '_tk' ); ?></h2>
-		</header><!-- .page-header -->
+			<div class="page-content">
 
-		<div class="page-content">
+				<p><?php _e( 'Nothing could be found at this location. Maybe try a search?', '_tk' ); ?></p>
 
-			<p><?php _e( 'Nothing could be found at this location. Maybe try a search?', '_tk' ); ?></p>
+				<?php get_search_form(); ?>
 
-			<?php get_search_form(); ?>
+			</div><!-- .page-content -->
 
-		</div><!-- .page-content -->
+		</section><!-- .content-padder -->
+	</div>
+	<div class="col-md-4">
+		<?php get_sidebar(); ?>
+	</div>
+</div>
 
-	</section><!-- .content-padder -->
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

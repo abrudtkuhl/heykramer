@@ -10,24 +10,27 @@
  * @package _tk
  */
 
-get_header(); ?>
+get_header();
+
+if( has_post_thumbnail($post->ID) ) {
+	$hero_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+}
+else {
+	$hero_image = 'https://d2vhzxutzq6yvv.cloudfront.net/sites/heykramer/kramer-reaction.gif';
+}
+?>
+
+<div class="hero" style="background-image: url('<?php echo $hero_image; ?>');">
+	<h1><?php the_title(); ?></h1>
+</div>
 
 <div class="container">
-	<div class="col-md-8">
+	<div class="col-md-12">
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php get_template_part( 'content', 'page' ); ?>
 
-			<?php
-				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || '0' != get_comments_number() )
-					comments_template();
-			?>
-
 		<?php endwhile; // end of the loop. ?>
-	</div>
-	<div class="col-md-4">
-		<?php get_sidebar(); ?>
 	</div>
 </div>
 
